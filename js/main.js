@@ -72,7 +72,7 @@ function initGame() {
     }
 }
 
-// 4. Boss AI 逻辑 (环境规则) - 修复版
+// 4. Boss AI 逻辑 (环境规则)
 function bossAI(dt) {
     if(boss.actionTimer > 0) boss.actionTimer -= dt;
     if(boss.actionCooldown > 0) boss.actionCooldown -= dt;
@@ -101,7 +101,7 @@ function bossAI(dt) {
         const APPROACH_THRESHOLD = 180; // 追击距离
         const OPTIMAL_DIST = 130; // 理想作战距离
         
-        // 边界检查 (扩大阈值到 60，防止贴墙太死)
+        // 边界检查 (阈值60)
         const BOUND_PAD = 60; 
         const distL = boss.x - BOUND_PAD, distR = W - boss.x - BOUND_PAD;
         const distT = boss.y - BOUND_PAD, distB = H - boss.y - BOUND_PAD;
@@ -110,7 +110,7 @@ function bossAI(dt) {
         // 后撤冷却检查
         let canRetreat = (now - boss.lastRetreatTime) >= 2.0;
 
-        // 优先级 1: 被逼墙角且玩家贴脸 -> 强行突围/回中 (原逻辑是后撤，容易卡死，改为回中优先)
+        // 优先级 1: 被逼墙角且玩家贴脸 -> 强行突围/回中
         if(d < RETREAT_THRESHOLD && nearBound){
              boss.currentAction = 'returnCenter'; 
              boss.actionTimer = 0.8; 
@@ -124,10 +124,10 @@ function bossAI(dt) {
             boss.actionCooldown = 0.5; 
             boss.actionLockedUntil = now + 1.0;
         } 
-        // 优先级 3: 玩家贴脸 -> 后撤 (修复：缩短时间和锁定)
+        // 优先级 3: 玩家贴脸 -> 后撤 
         else if(d < RETREAT_THRESHOLD && canRetreat){
             boss.currentAction = 'retreat'; 
-            boss.actionTimer = 0.5; // [修复1] 从 1.2 改为 0.5，只退一小步
+            boss.actionTimer = 0.5; 
             boss.actionCooldown = 1.0; 
             boss.actionLockedUntil = now + 0.5; 
             boss.lastRetreatTime = now;
@@ -151,7 +151,7 @@ function bossAI(dt) {
 
     // === 执行阶段 ===
     if(boss.currentAction === 'returnCenter'){
-        // [修复2] 移除 player距离判断，只要没到中心就一直走
+        // 只要没到中心就一直走
         let dc = Math.hypot(boss.x-W/2, boss.y-H/2);
         
         // 如果已经很接近中心了，就提前结束动作，允许AI重新决策
@@ -180,7 +180,7 @@ function bossAI(dt) {
         let a = angleTo(player, boss); 
         boss.vx=Math.cos(a)*150; boss.vy=Math.sin(a)*150; boss.facing=angleTo(boss,player);
         
-        // [修复1 补充]：动态检查，如果退得够远了(>150px)，立即停止
+        // 动态检查，如果退得够远了(>150px)，立即停止
         if(dist(boss, player) > 150) {
             boss.vx = 0; boss.vy = 0;
             boss.actionTimer = 0; // 提前结束
@@ -199,7 +199,7 @@ function bossAI(dt) {
     }
 }
 
-// 5. 状态向量化 (State Vectorization)
+// 5. 状态向量化
 function getStateVector(){
     let dx = (boss.x - player.x) / W; 
     let dy = (boss.y - player.y) / H;
@@ -569,4 +569,5 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("未找到已保存的模型！"); 
         }
     };
+
 });
