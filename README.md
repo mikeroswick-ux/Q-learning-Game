@@ -4,13 +4,13 @@ An interactive game where a **Deep Q-Network (DQN)** agent learns to fight a bos
 
 ## Features
 
-- 🎮 **Real-time game** – Player (controlled by DQN) vs. AI boss.
-- 🧠 **DQN agent** – Implements experience replay, target network, and epsilon‑greedy exploration.
-- 📈 **Live training** – Watch the agent improve over episodes.
-- ⚡ **Speed control** – Run the game at 0.5x to 5x speed.
-- 💾 **Model persistence** – Save/load trained models to/from browser’s LocalStorage.
-- 📊 **Reward breakdown & plot** – Detailed scoreboard and a live reward curve.
-- 🎛️ **Adjustable parameters** – Change epsilon, replay start, etc. directly in the code.
+-  **Real-time game** – Player (controlled by DQN) vs. AI boss.
+-  **DQN agent** – Implements experience replay, target network, and epsilon‑greedy exploration.
+-  **Live training** – Watch the agent improve over episodes.
+-  **Speed control** – Run the game at 0.5x to 5x speed.
+-  **Model persistence** – Save/load trained models to/from browser’s LocalStorage.
+-  **Reward breakdown & plot** – Detailed scoreboard and a live reward curve.
+-  **Adjustable parameters** – Change epsilon, replay start, etc. directly in the code.
 
 ## Demo
 
