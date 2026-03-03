@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DQN Boss Battle</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 引入 TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+</head>
+<body>
+  <div id="ui">
+    <!-- 控制区域 -->
+    <div class="ui-section">
+      <div class="ui-group">
+        <span class="group-title">🎮 游戏控制</span>
+        <button id="startBtn" class="btn btn-primary">▶ 开始</button>
+        <button id="trainBtn" class="btn btn-success">⚙ 训练</button>
+        <button id="resetBtn" class="btn btn-danger">🔄 重置</button>
+      </div>
+      
+      <div class="ui-group">
+        <span class="group-title">⚡ 速度控制</span>
+        <div id="speedControls" class="speed-controls">
+          <button class="speedBtn" data-speed="0.5">0.5x</button>
+          <button class="speedBtn" data-speed="1">1x</button>
+          <button class="speedBtn" data-speed="2">2x</button>
+          <button class="speedBtn" data-speed="3">3x</button>
+          <button class="speedBtn" data-speed="4">4x</button>
+          <button class="speedBtn" data-speed="5">5x</button>
+        </div>
+        <span id="speedLabel" class="speed-label">1x</span>
+      </div>
+      
+      <div class="ui-group">
+        <span class="group-title">📊 图表</span>
+        <label for="plotAfter">显示回合数</label>
+        <input id="plotAfter" type="number" value="100" class="input-number" />
+        <button id="showPlotBtn" class="btn btn-info">📈 显示图表</button>
+      </div>
+      
+      <div class="ui-group">
+        <span class="group-title">💾 快照管理</span>
+        <button id="saveSnapshotBtn" class="btn btn-secondary">💾 保存模型</button>
+        <button id="loadSnapshotBtn" class="btn btn-secondary">📂 加载模型</button>
+      </div>
+    </div>
+    
+    <!-- 状态信息 -->
+    <div id="status" class="status-info"></div>
+    <div id="stats" class="stats-info"></div>
+  </div>
+
+  <div style="display:flex;gap:10px;margin:10px auto;max-width:1300px">
+    <div style="flex-shrink:0">
+      <canvas id="game" width="900" height="500"></canvas>
+    </div>
+    <div id="scoreBoard" style="flex:1;background:#0a0e27;border:2px solid #4caf50;border-radius:8px;padding:12px;color:#4caf50;font-family:monospace;font-size:13px;overflow-y:auto;max-height:500px;user-select:text">
+      <div style="font-weight:bold;margin-bottom:8px;font-size:14px;color:#7cff00">得分表</div>
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr style="border-bottom:1px solid #4caf50;color:#7cff00">
+            <th style="text-align:left;padding:4px 0">项目</th>
+            <th style="text-align:right;padding:4px 0">得分</th>
+            <th style="text-align:right;padding:4px 0">百分比</th>
+          </tr>
+        </thead>
+        <tbody id="scoreBody">
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding-top:8px;border-top:1px solid #4caf50;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+          <span>总得分</span>
+          <span id="totalScore" style="color:#FFD93D;font-weight:bold">0</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;color:#999;font-size:12px">
+          <span>本回合累积</span>
+          <span id="episodeLabel" style="color:#999">Episode 0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas id="plot" width="900" height="150" style="display:block;margin:6px auto;border:1px solid #333;background:#071018"></canvas>
+
+  <!-- 按顺序加载 JS -->
+  <script src="js/utils.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/dqn.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

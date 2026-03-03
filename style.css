@@ -1,0 +1,213 @@
+body{
+  font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+  background:#0a0e1a;
+  color:#e0e0e0;
+  margin:0;
+  padding:0;
+}
+
+/* UI 容器 */
+#ui{
+  padding:16px;
+  background:linear-gradient(135deg, #1a1f3a 0%, #0f1423 100%);
+  border-bottom:2px solid #4caf50;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+
+.ui-section{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+
+.ui-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(76, 175, 80, 0.05);
+  padding:12px 16px;
+  border-radius:8px;
+  border-left:3px solid #4caf50;
+}
+
+.group-title{
+  font-weight:600;
+  color:#7cff00;
+  font-size:13px;
+  min-width:100px;
+}
+
+/* 按钮样式 */
+button{
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  text-transform:none;
+  white-space:nowrap;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+button:active{
+  transform:translateY(0);
+}
+
+.btn-primary{
+  background:linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color:#001;
+  border:2px solid #4caf50;
+}
+
+.btn-primary:hover{
+  background:linear-gradient(135deg, #5fc061 0%, #52b35a 100%);
+  box-shadow:0 4px 16px rgba(76, 175, 80, 0.4);
+}
+
+.btn-success{
+  background:linear-gradient(135deg, #2196F3 0%, #0d47a1 100%);
+  color:#fff;
+  border:2px solid #2196F3;
+}
+
+.btn-success:hover{
+  background:linear-gradient(135deg, #42a5f5 0%, #1565c0 100%);
+  box-shadow:0 4px 16px rgba(33, 150, 243, 0.4);
+}
+
+.btn-danger{
+  background:linear-gradient(135deg, #f44336 0%, #c62828 100%);
+  color:#fff;
+  border:2px solid #f44336;
+}
+
+.btn-danger:hover{
+  background:linear-gradient(135deg, #ef5350 0%, #d32f2f 100%);
+  box-shadow:0 4px 16px rgba(244, 67, 54, 0.4);
+}
+
+.btn-info{
+  background:linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+  color:#001;
+  border:2px solid #00bcd4;
+}
+
+.btn-info:hover{
+  background:linear-gradient(135deg, #26c6da 0%, #00838f 100%);
+  box-shadow:0 4px 16px rgba(0, 188, 212, 0.4);
+}
+
+.btn-secondary{
+  background:linear-gradient(135deg, #9c27b0 0%, #6a1b9a 100%);
+  color:#fff;
+  border:2px solid #9c27b0;
+}
+
+.btn-secondary:hover{
+  background:linear-gradient(135deg, #ab47bc 0%, #7b1fa2 100%);
+  box-shadow:0 4px 16px rgba(156, 39, 176, 0.4);
+}
+
+/* 速度控制按钮 */
+.speed-controls{
+  display:flex;
+  gap:4px;
+}
+
+.speedBtn{
+  padding:6px 10px;
+  background:#333;
+  color:#aaa;
+  border:2px solid #555;
+  border-radius:4px;
+  font-size:12px;
+  min-width:44px;
+  transition:all 0.2s ease;
+}
+
+.speedBtn:hover{
+  background:#444;
+  border-color:#666;
+}
+
+.speedBtn.active{
+  background:linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color:#001;
+  border-color:#4caf50;
+  font-weight:bold;
+  box-shadow:0 2px 8px rgba(76, 175, 80, 0.5);
+}
+
+.speed-label{
+  color:#7cff00;
+  font-weight:bold;
+  min-width:30px;
+  text-align:center;
+}
+
+/* 输入框样式 */
+input[type="number"]{
+  padding:6px 10px;
+  background:#1a1f3a;
+  color:#7cff00;
+  border:2px solid #4caf50;
+  border-radius:4px;
+  font-size:12px;
+  width:80px;
+  transition:border-color 0.2s ease;
+}
+
+input[type="number"]:focus{
+  outline:none;
+  border-color:#7cff00;
+  box-shadow:0 0 8px rgba(124, 255, 0, 0.3);
+}
+
+input[type="number"]::placeholder{
+  color:#666;
+}
+
+.input-number{
+  width:80px;
+}
+
+/* 标签样式 */
+label{
+  color:#999;
+  font-size:12px;
+  font-weight:500;
+}
+
+/* 状态信息 */
+.status-info{
+  display:block;
+  color:#7cff00;
+  font-family:monospace;
+  font-size:12px;
+  margin-top:8px;
+  padding:8px 0;
+}
+
+.stats-info{
+  display:block;
+  color:#7cff00;
+  font-family:monospace;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* 画布样式 */
+canvas{
+  display:block;
+  margin:12px auto;
+  border:2px solid #4caf50;
+  background:linear-gradient(135deg, #0b1220 0%, #0a0e1a 100%);
+  border-radius:4px;
+}
