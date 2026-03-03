@@ -1,6 +1,6 @@
 // === 游戏实体与渲染 ===
 
-// 全局常量 (需要在 main.js 中初始化 Canvas 后赋值，或者直接写死)
+// 全局常量
 const CANVAS_WIDTH = 900;
 const CANVAS_HEIGHT = 500;
 
@@ -106,4 +106,5 @@ function inSector(attacker, target, angle, arcDeg, radius) {
     let a = angleTo(attacker, target);
     let diff = Math.atan2(Math.sin(a - angle), Math.cos(a - angle));
     return Math.abs(diff) <= (arcDeg / 2) * Math.PI / 180;
+
 }
